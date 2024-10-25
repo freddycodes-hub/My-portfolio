@@ -1,0 +1,251 @@
+body{
+    font-family: sans-serif;
+    background-color: rgb(2, 2, 24);
+    color: white;
+}
+#nav{
+    display: flex;
+    margin-left: 450px;
+    margin-top: 50px;
+    padding-top: 10px;
+    background-color: rgb(6, 6, 37);
+    border: none;
+    border-style: groove;
+    height: 30px;
+    width: 450px;
+    border-radius: 25px;
+    backdrop-filter: blur(4px);
+}
+.nav-links{
+    text-decoration: none;
+    color: white;
+    margin-left: 50px;
+}
+.nav-links:hover{
+    text-decoration: underline;
+    font-size: large;
+}
+#dp{
+    margin-top: 45px;
+    width: 200px;
+    height: 250px;
+}
+.container1{
+    display: flex;
+    margin-top: 200px;
+    font-size: 40px;
+    margin-left: 300px;
+    margin-bottom: 300px;
+    gap: 100px;
+}
+#container-head{
+    margin-top: 160px;
+}
+#about-head{
+    font-size: 80px;
+    text-align: center;
+    margin-bottom: 0px;
+}
+#about-content{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 300px;
+}
+.card{
+    background-color: rgb(6, 6, 37);
+    border-radius: 25px;
+    width: 500px;
+    height: 400px;
+    align-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 200px;
+    margin-left: 400px;
+    font-size: 20px;
+}
+.card-head1{
+    margin-left: 20px;
+}
+.card-head2{
+    margin-top: -10px;
+    margin-left: 20px;
+    font-size: 40px;
+}
+#links{
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+    line-height: 50px;
+}
+#links:hover{
+    text-decoration: underline;
+    color: dimgray;
+}
+.card3{
+    background-color: rgb(6, 6, 37);
+    border-radius: 25px;
+    width: 500px;
+    height: 500px;
+    align-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 50px;
+    margin-left: 400px;
+    font-size: 20px;
+}
+.card-head3{
+    margin-left: 20px;
+    font-size: 40px;
+}
+.card-content3{
+    margin-left: 10px;
+}
+@media screen and (max-width: 768px) {
+    body{
+        font-family: sans-serif;
+        background-color: rgb(2, 2, 24);
+        color: white;
+    }
+    #nav{
+        display: flex;
+        margin-left: 10px;
+        margin-top: 50px;
+        padding-top: 10px;
+        background-color: rgb(6, 6, 37);
+        border: none;
+        border-style: groove;
+        height: 30px;
+        width: 350px;
+        border-radius: 25px;
+        backdrop-filter: blur(4px);
+    }
+    .nav-links{
+        text-decoration: none;
+        color: white;
+        margin-left: 29px;
+    }
+    .nav-links:hover{
+        text-decoration: underline;
+        font-size: large;
+    }
+    #dp{
+        margin-top: -150px;
+        width: fit-content;
+        margin-left: -200px;
+    }
+    .container1{
+        display: flex;
+        margin-top: 200px;
+        font-size: 40px;
+        /* margin-left: 300px; */
+        margin-bottom: 300px;
+        gap: 100px;
+    }
+    #container-head{
+        margin-left: -380px;
+        margin-top: 160px;
+    }
+    #about-head{
+        margin-top: -50px;
+        font-size: 80px;
+        text-align: center;
+        margin-bottom: 0px;
+    }
+    #about-content{
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 300px;
+    }
+    .card{
+        background-color: rgb(6, 6, 37);
+        border-radius: 25px;
+        width: 300px;
+        height: 550px;
+        align-content: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 200px;
+        margin-left: 15px;
+        font-size: 20px;
+    }
+    .card-head1{
+        margin-left: 20px;
+    }
+    h4, p{
+        animation: myAni 2s ease 0s 1 normal forwards;
+    }
+    @keyframes myAni {
+        0% {
+            opacity: 0;
+            transform: scale(0.6);
+        }
+    
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    h2{
+        animation: scroll 2s ease 0s 1 normal forwards;
+    }
+    @keyframes scroll {
+        0% {
+            opacity: 0;
+            transform: translateX(-250px);
+        }
+    
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    li{
+        animation: myAnim 2s ease 0s 1 normal forwards;
+
+    }
+    @keyframes myAnim {
+        0% {
+            opacity: 0;
+            transform: translateX(250px);
+        }
+    
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    .card-head2{
+        margin-top: -10px;
+        margin-left: 20px;
+        font-size: 40px;
+    }
+    #links{
+        text-decoration: none;
+        color: white;
+        margin-left: 10px;
+        line-height: 50px;
+    }
+    #links:hover{
+        text-decoration: underline;
+        color: dimgray;
+    }
+    .card3{
+        background-color: rgb(6, 6, 37);
+        border-radius: 25px;
+        width: 300px;
+        height: 500px;
+        align-content: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 50px;
+        margin-left: 15px;
+        font-size: 20px;
+    }
+    .card-head3{
+        margin-left: 20px;
+        font-size: 40px;
+    }
+    .card-content3{
+        margin-left: 10px;
+    }
+}
