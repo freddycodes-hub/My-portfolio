@@ -102,9 +102,11 @@ body{
 }
 @media screen and (max-width: 768px) {
     body{
+        box-sizing: border-box;
         font-family: sans-serif;
         background-color: rgb(2, 2, 24);
         color: white;
+        min-width: fit-content;
     }
     #nav{
         display: flex;
@@ -115,14 +117,14 @@ body{
         border: none;
         border-style: groove;
         height: 30px;
-        width: 350px;
+        width: 330px;
         border-radius: 25px;
         backdrop-filter: blur(4px);
     }
     .nav-links{
         text-decoration: none;
         color: white;
-        margin-left: 29px;
+        margin-left: 24px;
     }
     .nav-links:hover{
         text-decoration: underline;
@@ -238,7 +240,7 @@ body{
         padding-left: 20px;
         padding-right: 20px;
         margin-bottom: 50px;
-        margin-left: 15px;
+        margin-left: 6px;
         font-size: 20px;
     }
     .card-head3{
