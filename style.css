@@ -202,7 +202,7 @@ body.light .theme-button:hover i {
         font-family: sans-serif;
         background-color: rgb(2, 2, 24);
         color: white;
-        min-width: fit-content;
+        width: auto;
         height: 4000px;
         overflow-x: hidden;
     }
