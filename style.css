@@ -1,11 +1,108 @@
 body{
+    /* font-family: 'Arial', sans-serif; */
+    margin: 0;
+    padding: 0;
+    height: 550vh;
+    color: white;
+    transition: background-color 0.4s ease, color 0.4s ease;
     font-family: sans-serif;
     background-color: rgb(2, 2, 24);
-    color: white;
+}
+.magic-circle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    animation: fadeOut 1s ease-out 5s forwards;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.outer {
+    width: 300px;
+    height: 300px;
+    border: 4px solid transparent;
+    animation: drawCircle 2s linear forwards, rotate 10s linear infinite;
+}
+
+.inner {
+    width: 200px;
+    height: 200px;
+    border: 4px solid transparent;
+    animation: drawCircle 2s linear 0.5s forwards, rotate 8s linear infinite reverse;
+}
+
+.center {
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    border: 4px solid transparent;
+    animation: drawCircle 1s linear 1s forwards, pulse 2s ease-in-out infinite;
+}
+
+@keyframes drawCircle {
+    0% {
+        opacity: 0;
+        stroke-dasharray: 0 1000;
+    }
+    100% {
+        opacity: 1;
+        stroke-dasharray: 1000 1000;
+        border-color: #007F7F;
+    }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.7; }
+}
+
+.portfolio-title {
+    color: #007F7F;
+    font-size: 2.5em;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out 2s forwards, float 2s ease-in-out infinite;
+}
+
+.content {
+    opacity: 0;
+    animation: fadeIn 1s ease-out 5s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
 }
 #nav{
     display: flex;
-    margin-left: 500px;
+    margin-left: 450px;
     margin-top: 50px;
     padding-top: 10px;
     background-color: rgb(6, 6, 37);
@@ -15,6 +112,7 @@ body{
     width: 450px;
     border-radius: 25px;
     backdrop-filter: blur(4px);
+    animation: pulse 2s infinite;
 }
 .nav-links{
     text-decoration: none;
@@ -25,16 +123,6 @@ body{
     text-decoration: underline;
     font-size: large;
 }
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background-color: #0A1128;
-    color: white;
-    transition: background-color 0.4s ease, color 0.4s ease;
-}
-
 .theme-button {
     padding: 15px 30px;
     border: none;
@@ -55,22 +143,18 @@ body {
     margin-top: -10px;
     height: 40px;
 }
-
 .theme-button i {
     margin: 0 10px;
     transition: transform 0.4s ease;
 }
-
 .theme-button:hover {
     background-color: #007F7F;
     transform: translateY(-5px);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
 }
-
 .theme-button:hover i {
     transform: scale(1.1);
 }
-
 .theme-button::after {
     content: '';
     position: absolute;
@@ -84,15 +168,16 @@ body {
     transition: opacity 0.4s ease;
     z-index: 0;
 }
-
 .theme-button:hover::after {
     opacity: 1;
 }
 body.light .card{
     background-color: whitesmoke;
+    box-shadow: 1px 1px 20px black;
 }
 body.light .card3{
     background-color: whitesmoke;
+    box-shadow: 1px 1px 20px black;
 }
 body.light .nav-links{
     color: black;
@@ -147,8 +232,25 @@ body.light .theme-button:hover i {
     font-size: 30px;
     margin-bottom: 300px;
 }
+
+
+
 .card{
+    border-radius: 50%;
+    width: 500px;
+    height: 500px;
     background-color: rgb(6, 6, 37);
+    align-content: center;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 200px;
+    margin-left: 410px;
+    font-size: 20px;
+}
+.card:hover{
+    background-color: rgb(6, 6, 37);
+    box-shadow: 1px 1px 20px black;
     border-radius: 25px;
     width: 500px;
     height: 400px;
@@ -158,44 +260,223 @@ body.light .theme-button:hover i {
     margin-bottom: 200px;
     margin-left: 410px;
     font-size: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: ease-out 2s;
 }
+
+
+
+
 .card-head1{
     margin-left: 20px;
+    text-align: center;
+    margin-top: 170px;
+}
+.card:hover .card-head1{
+    margin-top: 0;
+    text-align: none;
+    margin-left: -80px;
+    text-decoration: underline;
+    text-decoration-color: #007F7F;
+    transition: ease 0.8s;
 }
 .card-head2{
-    margin-top: -10px;
     margin-left: 20px;
+    text-align: center;
+    margin-top: 170px;
     font-size: 40px;
 }
-#links{
-    text-decoration: none;
-    color: white;
-    margin-left: 10px;
-    line-height: 50px;
-}
-#links:hover{
+.card:hover .card-head2{
+    margin-top: 0;
+    text-align: none;
+    margin-left: -300px;
     text-decoration: underline;
-    color: dimgray;
+    text-decoration-color: #007F7F;
+    transition: ease 1s;
 }
-.card3{
+.card-content-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease;
+    opacity: 0;
+    overflow-y: auto; /* Add scrollbar if content is too long */
+}
+
+.card:hover .card-content-container {
+    top: 100px;
+    padding-left: 30px;
+    opacity: 1;
+}
+
+.card-head1, .card-head2, .card-head3 {
+    margin-bottom: 250px;
+}
+
+.card-content {
+    padding: 20px;
+    line-height: 25px;
+}
+.card:hover .card-content3 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card3 {
     background-color: rgb(6, 6, 37);
+    border-radius: 50%;
+    width: 500px;
+    height: 500px;
+    align-content: center;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 200px;
+    margin-left: 410px;
+    font-size: 20px;
+}
+
+.card3:hover{
+    background-color: rgb(6, 6, 37);
+    box-shadow: 1px 1px 20px black;
     border-radius: 25px;
     width: 500px;
     height: 500px;
     align-content: center;
     padding-left: 20px;
     padding-right: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 200px;
     margin-left: 410px;
     font-size: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: ease-out 2s;
 }
-.card-head3{
+.card-head3 {
+    text-align: center;
+    margin-top: 170px;
     margin-left: 20px;
     font-size: 40px;
 }
-.card-content3{
-    margin-left: 10px;
+.card3:hover .card-head3{
+    margin-top: -100px;
+    text-align: none;
+    margin-left: -160px;
+    text-decoration: underline;
+    text-decoration-color: #007F7F;
+    transition: ease 0.8s;
 }
+.card3:hover .card-content-container{
+    top: 100px;
+    padding-left: 30px;
+    opacity: 1;
+}
+.card-content3 {
+    margin-left: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.card3:hover .card-content3 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add a glowing effect to links */
+#links {
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+    line-height: 50px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+#links::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #007F7F;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+#links:hover {
+    color: #007F7F;
+}
+
+#links:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Add a pulsating animation to the theme button */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 127, 127, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 127, 127, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 127, 127, 0);
+    }
+}
+
+.theme-button {
+    animation: pulse 2s infinite;
+}
+
+/* Add a smooth transition for body background color change */
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Add a futuristic loading animation */
+@keyframes loadingAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.loading::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #007F7F;
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    animation: loadingAnimation 1s linear infinite;
+}
+/* Enhance scrollbar for a futuristic look */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(6, 6, 37, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: um5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #005F5F;
+}
+
+
 @media screen and (max-width: 768px) {
     body{
         box-sizing: border-box;
@@ -205,6 +486,17 @@ body.light .theme-button:hover i {
         width: auto;
         height: 4000px;
         overflow-x: hidden;
+    }
+    /* Container */
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 20px;
+        border: 1px solid transparent;
     }
     #nav{
         display: flex;
@@ -281,15 +573,16 @@ body.light .theme-button:hover i {
     .theme-button:hover::after {
         opacity: 1;
     }
-
     body.light .card3{
         background-color: whitesmoke;
+        box-shadow: 1px 1px 20px black;
     }
     body.light #links{
         color: black;
     }
     body.light .card{
         background-color: whitesmoke;
+        box-shadow: 1px 1px 20px black;
         color: #000;
     }
     
@@ -333,95 +626,186 @@ body.light .theme-button:hover i {
         margin-bottom: 300px;
     }
     .card{
-        background-color: rgb(6, 6, 37);
-        border-radius: 25px;
+        border-radius: 50%;
         width: 300px;
-        height: 550px;
+        height: 300px;
+        background-color: rgb(6, 6, 37);
+        align-content: center;
+        justify-content: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 200px;
+        margin-left: 0px;
+        font-size: 20px;
+    }
+    .card:hover{
+        background-color: rgb(6, 6, 37);
+        box-shadow: 1px 1px 20px black;
+        border-radius: 25px;
+        width: 500px;
+        height: 400px;
         align-content: center;
         padding-left: 20px;
         padding-right: 20px;
         margin-bottom: 200px;
-        margin-left: 6px;
+        margin-left: 0px;
         font-size: 20px;
+        position: relative;
+        overflow: hidden;
+        transition: ease-out 2s;
     }
+    
+    
+    
+    
     .card-head1{
-        margin-left: 20px;
+        margin-left: 10px;
+        text-align: center;
+        margin-top: 120px;
     }
-    h4, p{
-        animation: myAni 2s ease 0s 1 normal forwards;
-    }
-    @keyframes myAni {
-        0% {
-            opacity: 0;
-            transform: scale(0.6);
-        }
-    
-        100% {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-    h2{
-        animation: scroll 2s ease 0s 1 normal forwards;
-    }
-    @keyframes scroll {
-        0% {
-            opacity: 0;
-            transform: translateX(-250px);
-        }
-    
-        100% {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-    li{
-        animation: myAnim 2s ease 0s 1 normal forwards;
-
-    }
-    @keyframes myAnim {
-        0% {
-            opacity: 0;
-            transform: translateX(250px);
-        }
-    
-        100% {
-            opacity: 1;
-            transform: translateX(0);
-        }
+    .card:hover .card-head1{
+        margin-top: 0;
+        text-align: none;
+        margin-left: 0px;
+        text-decoration: underline;
+        text-decoration-color: #007F7F;
+        transition: ease 0.8s;
     }
     .card-head2{
-        margin-top: -10px;
-        margin-left: 20px;
+        margin-left: 10px;
+        text-align: center;
+        margin-top: 120px;
         font-size: 40px;
     }
-    #links{
-        text-decoration: none;
-        color: white;
-        margin-left: 10px;
-        line-height: 50px;
-    }
-    #links:hover{
+    .card:hover .card-head2{
+        margin-top: 0;
+        text-align: none;
+        margin-left: 0px;
         text-decoration: underline;
-        color: dimgray;
+        text-decoration-color: #007F7F;
+        transition: ease 1s;
     }
-    .card3{
+    .card-content-container {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: all 0.3s ease;
+        opacity: 0;
+        overflow-y: auto; /* Add scrollbar if content is too long */
+    }
+    
+    .card:hover .card-content-container {
+        top: 100px;
+        padding-left: 30px;
+        opacity: 1;
+    }
+    
+    .card-head1, .card-head2, .card-head3 {
+        margin-bottom: 250px;
+    }
+    
+    .card-content {
+        padding: 20px;
+        line-height: 25px;
+    }
+    .card:hover .card-content3 {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .card3 {
         background-color: rgb(6, 6, 37);
-        border-radius: 25px;
+        border-radius: 50%;
         width: 300px;
+        height: 300px;
+        align-content: center;
+        justify-content: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 200px;
+        margin-left: 0px;
+        font-size: 20px;
+    }
+    
+    .card3:hover{
+        background-color: rgb(6, 6, 37);
+        box-shadow: 1px 1px 20px black;
+        border-radius: 25px;
+        width: 500px;
         height: 500px;
         align-content: center;
         padding-left: 20px;
         padding-right: 20px;
-        margin-bottom: 50px;
-        margin-left: 6px;
+        margin-bottom: 200px;
+        margin-left: 0px;
         font-size: 20px;
+        position: relative;
+        overflow: hidden;
+        transition: ease-out 2s;
     }
-    .card-head3{
-        margin-left: 20px;
+    .card-head3 {
+        text-align: center;
+        margin-top: 120px;
+        margin-left: 10px;
         font-size: 40px;
     }
-    .card-content3{
-        margin-left: 10px;
+    .card3:hover .card-head3{
+        margin-top: -100px;
+        text-align: none;
+        margin-left: 0px;
+        text-decoration: underline;
+        text-decoration-color: #007F7F;
+        transition: ease 0.8s;
     }
+    .card3:hover .card-content-container{
+        top: 100px;
+        padding-left: 30px;
+        opacity: 1;
+    }
+    .card-content3 {
+        margin-left: 10px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    
+    .card3:hover .card-content3 {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Add a glowing effect to links */
+    #links {
+        text-decoration: none;
+        color: white;
+        margin-left: 10px;
+        line-height: 50px;
+        position: relative;
+        transition: color 0.3s ease;
+    }
+    
+    #links::before {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #007F7F;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s ease;
+    }
+    
+    #links:hover {
+        color: #007F7F;
+    }
+    
+    #links:hover::before {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+    
 }
